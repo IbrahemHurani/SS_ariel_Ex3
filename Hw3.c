@@ -42,7 +42,7 @@ int geomrtria() {
 	}
 	i = 0;
 	int j = 0, k = 0;
-	printf("Gematria Sequences:");
+	printf("Gematria Sequences: ");
 	while (text[i] != '\0') {
 		if ((text[i] >= 'a' && text[i] <= 'z' )|| (text[i] >= 'A' && text[i] <= 'Z')) {
 			j = i;
@@ -102,7 +102,7 @@ int atbash()
 {
 	char Reword[WORD], RReword[WORD];
 	int i = 0, j = 0, k = 0, flag = 0;
-	printf("Atbash Sequences:");
+	printf("Atbash Sequences: ");
 	while (word[i] != '\0') {
 		Reword[j] = Reverse(word[i]);
 		i++;
@@ -185,7 +185,7 @@ int Anagram() {
 		}
 		i++;
 	}
-	printf("Anagram Sequences:");
+	printf("Anagram Sequences: ");
 	i = 0;
 	while (text[i] != '\0') {
 		if ((text[i] >= 'a' && text[i] <= 'z') || ( text[i] >= 'A' && text[i] <= 'Z')) {
