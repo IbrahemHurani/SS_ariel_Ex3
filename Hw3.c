@@ -5,6 +5,22 @@
 char word[WORD];
 char text[TXT];
 
+void inputword(){
+	int i = 0;
+	do {
+		scanf("%c", &word[i]);
+		i++;
+	} while ((word[i - 1] != ' ') && (word[i-1]!='\t') && (word[i-1]!='\n'));
+	word[i++]='\0';
+}
+void inputTxt(){
+	int j = 0;
+	do {
+		scanf("%c", &text[j]);
+		j++;
+	} while (text[j - 1] != '~');
+	text[j++] = '\0';
+}
 int Check_char(char ch) {
 	if (ch >= 'a'&&ch <= 'z') {
 		return ch - 'a' + 1;
@@ -211,19 +227,8 @@ int Anagram() {
 	return 0;
 }
 int main() {
-	
-	int i = 0;
-	do {
-		scanf("%c", &word[i]);
-		i++;
-	} while (word[i - 1] != ' ');
-	word[i++] = '\0';
-	int j = 0;
-	do {
-		scanf("%c", &text[j]);
-		j++;
-	} while (text[j - 1] != '~');
-	text[j++] = '\0';
+	inputword();
+	inputTxt();
 	geomrtria();
 	atbash();
 	Anagram();
