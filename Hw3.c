@@ -15,7 +15,7 @@ int Check_char(char ch) {
 	return 0;
 }
 
-int geomrtria(char *txt, char *word) {
+int geomrtria() {
 	int i = 0;
 	int GeoWords = 0;
 	int GeoTxt = 0;
@@ -27,19 +27,19 @@ int geomrtria(char *txt, char *word) {
 	i = 0;
 	int j = 0, k = 0;
 	printf("Gematria Sequences:");
-	while (txt[i] != '\0') {
-		if ((txt[i] >= 'a' && txt[i] <= 'z' )|| (txt[i] >= 'A' && txt[i] <= 'Z')) {
+	while (text[i] != '\0') {
+		if ((text[i] >= 'a' && text[i] <= 'z' )|| (text[i] >= 'A' && text[i] <= 'Z')) {
 			j = i;
 			GeoTxt = 0;
-			while (txt[j] != '\0') {
-				GeoTxt += Check_char(txt[j]);
+			while (text[j] != '\0') {
+				GeoTxt += Check_char(text[j]);
 				if (GeoTxt == GeoWords) {
 					if (flag > 0) {
 						printf("~");
 					}
 					k = i;
 					while (k <= j) {
-						printf("%c", txt[k]);
+						printf("%c", text[k]);
 						k++;
 					}
 					flag++;
@@ -82,7 +82,7 @@ int check_word(int index, char *Rword, char *txt) {
 	return count;
 }
 
-int atbash(char *txt, char *word)
+int atbash()
 {
 	char Reword[WORD], RReword[WORD];
 	int i = 0, j = 0, k = 0, flag = 0;
@@ -108,13 +108,13 @@ int atbash(char *txt, char *word)
 	}
 	RReword[i] = '\0';
 	i = 0;
-	while (txt[i] != '\0') {
-		if (txt[i] == Reword[0]) {
-			int count = check_word(i, Reword, txt);
+	while (text[i] != '\0') {
+		if (text[i] == Reword[0]) {
+			int count = check_word(i, Reword, text);
 			if (count == strlen(Reword)) {
 				if (flag > 0) printf("~");
 				while (count != 0) {
-					printf("%c", txt[i]);
+					printf("%c", text[i]);
 					i++;
 					count--;
 				}
@@ -122,12 +122,12 @@ int atbash(char *txt, char *word)
 			}
 
 		}
-		else if (txt[i] == RReword[0]) {
-			int count = check_word(i, RReword, txt);
+		else if (text[i] == RReword[0]) {
+			int count = check_word(i, RReword, text);
 			if (count == strlen(RReword)) {
 				if (flag > 0)printf("~");
 				while (count != 0) {
-					printf("%c", txt[i]);
+					printf("%c", text[i]);
 					i++;
 					count--;
 				}
@@ -156,7 +156,7 @@ int equal_Array(int *check, int *arrtemp) {
 	return 1;
 }
 
-int Anagram(char *text, char *word) {
+int Anagram() {
 	int i = 0, p = 0;
 	int arrtemp[26] = { 0 };
 	int flag = 0;
@@ -224,8 +224,8 @@ int main() {
 		j++;
 	} while (text[j - 1] != '~');
 	text[j++] = '\0';
-	geomrtria(text, word);
-	atbash(text, word);
-	Anagram(text, word);
+	geomrtria();
+	atbash();
+	Anagram();
 
 }
