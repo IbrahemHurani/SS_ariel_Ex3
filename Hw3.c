@@ -1,10 +1,9 @@
 #include<stdio.h>
 #include <string.h>
-#include<conio.h>
-#include <stdlib.h>
 #define TXT 1024
 #define WORD 30
-
+char word[WORD];
+char text[TXT];
 
 int Check_char(char ch) {
 	if (ch >= 'a'&&ch <= 'z') {
@@ -29,7 +28,7 @@ int geomrtria(char *txt, char *word) {
 	int j = 0, k = 0;
 	printf("Gematria Sequences:");
 	while (txt[i] != '\0') {
-		if (txt[i] >= 'a'&&txt[i] <= 'z' || txt[i] >= 'A'&&txt[i] <= 'Z') {
+		if ((txt[i] >= 'a' && txt[i] <= 'z' )|| (txt[i] >= 'A' && txt[i] <= 'Z')) {
 			j = i;
 			GeoTxt = 0;
 			while (txt[j] != '\0') {
@@ -54,6 +53,7 @@ int geomrtria(char *txt, char *word) {
 		i++;
 	}
 	printf("\n");
+	return 0;
 }
 char Reverse(char ch) {
 	if (ch >= 'a'&&ch <= 'z') {
@@ -100,7 +100,7 @@ int atbash(char *txt, char *word)
 	}
 	i = 0;
 	while (k >= 0) {
-		if (Reword[k] >= 'a'&&Reword[k] <= 'z' || Reword[k] >= 'A'&&Reword[k] <= 'Z') {
+		if ((Reword[k] >= 'a' && Reword[k] <= 'z') || (Reword[k] >= 'A' && Reword[k] <= 'Z')) {
 			RReword[i] = Reword[k];
 			i++;
 		}
@@ -137,6 +137,7 @@ int atbash(char *txt, char *word)
 		i++;
 	}
 	printf("\n");
+	return 0;
 }
 int foud(char ch, char *word) {
 	int i = 0;
@@ -163,7 +164,7 @@ int Anagram(char *text, char *word) {
 		if (word[i] >= 'a'&&word[i] <= 'z') {
 			arrtemp[word[i] - 'a']++;
 		}
-		else if (word[i] >= 'A'&&word[i] <= 'Z') {
+		else if (word[i] >= 'A' && word[i] <= 'Z') {
 			arrtemp[word[i] - 'A']++;
 		}
 		i++;
@@ -171,7 +172,7 @@ int Anagram(char *text, char *word) {
 	printf("Anagram Sequences:");
 	i = 0;
 	while (text[i] != '\0') {
-		if (text[i] >= 'a'&&text[i] <= 'z' || text[i] >= 'A'&&text[i] <= 'Z') {
+		if ((text[i] >= 'a' && text[i] <= 'z') || ( text[i] >= 'A' && text[i] <= 'Z')) {
 			int check[26] = { 0 };
 			if (text[i] == ' ') { i++; }
 			p = i;
@@ -193,7 +194,7 @@ int Anagram(char *text, char *word) {
 				if (flag > 0)printf("~");
 				int k = i, j = 0;
 				while (j < strlen(word)-1) {
-					if (text[k] >= 'a'&&text[k] <= 'z' || text[k] >= 'A'&&text[k] <= 'Z') {
+					if ((text[k] >= 'a' && text[k] <= 'z') || (text[k] >= 'A' && text[k] <= 'Z')) {
 						printf("%c", text[k]);
 						k++;
 					}
@@ -207,10 +208,10 @@ int Anagram(char *text, char *word) {
 		i++;
 	}
 	printf("\n");
+	return 0;
 }
-void main() {
-	char word[WORD];
-	char text[TXT];
+int main() {
+	
 	int i = 0;
 	do {
 		scanf("%c", &word[i]);
