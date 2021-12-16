@@ -223,7 +223,6 @@ int Anagram() {
 
 		i++;
 	}
-	printf("\n");
 	return 0;
 }
 int main() {
